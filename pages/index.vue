@@ -1,15 +1,8 @@
 <template>
-
-
-
+  <h1>Test</h1>
 </template>
 
 <script>
-
-import Input from '~/components/customInput/Input'
-import Navbar from '~/components/Navbar'
-import ButtonWave from '~/components/ButtonWave'
-import InputAnimate from '~/components/InputAnimate'
 
 export default {
   components: {
@@ -27,9 +20,5 @@ export default {
 </script>
 <style lang="scss">
 
-
-.block {
-
-}
 
 </style>

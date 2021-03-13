@@ -28,28 +28,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    'nuxt-i18n'
   ],
 
   axios: {},
-  i18n: {
-    locales: ['en', 'fr', 'es'],
-    defaultLocale: 'en',
-    vueI18n: {
-      fallbackLocale: 'en',
-      messages: {
-        en: {
-          welcome: 'Welcome'
-        },
-        fr: {
-          welcome: 'Bienvenue'
-        },
-        es: {
-          welcome: 'Bienvenido'
-        }
-      }
-    }
-  },
+
   build: {
     // transpile: ['vuetify'] //IE11
     postcss: [
