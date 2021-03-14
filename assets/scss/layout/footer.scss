@@ -1,4 +1,9 @@
 .footer {
+  %link {
+    color: #100f0f;
+    font-size: 14px;
+    font-weight: 300;
+  }
 
 
   padding-top: 40px;
@@ -84,20 +89,17 @@
       }
     }
   }
-%link {
-  font-weight: 300;
-  color: #100F0F;
-  font-size: 14px;
-}
+
   .rights {
+    @extend %link;
     grid-area: link1;
-   @extend %link;
   }
 
   .privacy {
+    @extend %link;
     font-size: 14px;
     grid-area: link2;
-    @extend %link;
+    justify-self: end;
   }
 
   @include breakpoint($desktop__all) {
