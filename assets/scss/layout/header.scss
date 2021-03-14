@@ -1,17 +1,83 @@
+%justify-center {
+  align-items: center;
+  justify-content: space-between;
+
+  display: flex;
+}
+
 .header {
-  position: fixed;
-  z-index: z(header);
+  align-items: center;
 
-  width: 100%;
-  height: $header_height;
+  display: flex;
+  min-height: 60px;
 
-  background-color: $color__primary;
+  padding: 15px 0;
 
-  &__wrap {
+  background-color: $color__secondary;
+
+  &__content {
+    @extend %justify-center;
+  }
+
+  &__control {
+    @extend %justify-center;
+  }
+
+  &__toggler {
+    @include burgerLines(2,2px,$color__dark);
+    display: none;
+    width: 24px;
+    height: 10px;
+    @include breakpoint ($phone__all) {
+      display: block;
+
+      margin-left: 40px;
+    }
+  }
+
+  &__langswitcher {
     align-items: center;
-    justify-content: space-between;
 
     display: flex;
-    height: $header_height;
+
+    margin-right: 3rem;
+
+    transition: all .2s;
+
+    span {
+      @include semi-cross(8px, 6px, 1px, $color__dark, 225deg);
+      position: relative;
+      top: -2px;
+      left: 8px;
+
+      &:before, &:after {
+        transition: all .2s;
+      }
+    }
+
+    &:hover {
+      color: $color__primary;
+
+      span {
+        position: relative;
+
+        &:before, &:after {
+          background-color: $color__primary;
+        }
+      }
+    }
+
+
+    @include breakpoint($phone__all) {
+      display: none;
+    }
+
+  }
+  @include breakpoint($phone__all) {
+    min-height: unset;
+
+    padding: 17px 0;
+
+    background-color: $color__light;
   }
 }

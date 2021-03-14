@@ -18,6 +18,7 @@
     "nuxt": "^2.14.5"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.4.0",
     "@commitlint/cli": "^11.0.0",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
@@ -29,15 +30,24 @@
     "eslint": "^7.16.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "husky": "^4.3.6",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "lqip-loader": "^2.2.1",
     "postcss-sort-media-queries": "^1.7.26",
     "prettier": "^2.2.1",
+    "responsive-loader": "^2.3.0",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
+    "sharp": "^0.27.2",
     "sort-css-media-queries": "^1.5.2",
+    "sqip-loader": "^1.0.0",
     "stylelint": "^13.9.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.18.0",
+    "webp-loader": "^0.6.0"
   },
   "config": {
     "commitizen": {

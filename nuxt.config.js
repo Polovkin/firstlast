@@ -21,9 +21,11 @@ export default {
   components: true,
 
   buildModules: [
-    '@nuxtjs/svg'
+    '@aceforth/nuxt-optimized-images',
   ],
-
+  optimizedImages: {
+    optimizeImages: true
+  },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',

@@ -16,12 +16,12 @@
 
 $breakpoints: (
   na: $width__min,
-        xs: $width__mobile-min,
-        sm: $width__tablet-port ,
-        md: $width__tablet-land ,
-        lg: $width__laptop-min ,
-        xl: $width__desktop-hd-min,
-        xxl: $width__desktop-hd + 1,
+  xs: $width__mobile-min,
+  sm: $width__tablet-port ,
+  md: $width__tablet-land ,
+  lg: $width__laptop-min ,
+  xl: $width__desktop-hd-min,
+  xxl: $width__desktop-hd + 1,
 );
 
 @function container($container-size, $true-val: false) {
@@ -29,6 +29,7 @@ $breakpoints: (
 }
 
 $container-sizes: (
+  xs: map-get($breakpoints, xs) - 14px,
   sm: map-get($breakpoints, sm) - 28px,
   md: map-get($breakpoints, md) - 54px,
   lg: map-get($breakpoints, lg) - 100px,

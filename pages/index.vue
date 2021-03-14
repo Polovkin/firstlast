@@ -1,5 +1,8 @@
 <template>
-  <h1>Test</h1>
+  <main>
+
+
+  </main>
 </template>
 
 <script>
@@ -19,6 +22,5 @@ export default {
 }
 </script>
 <style lang="scss">
-
 
 </style>

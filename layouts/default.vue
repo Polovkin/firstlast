@@ -1,8 +1,10 @@
 <template>
   <div>
+    <Header/>
     <div class="container">
       <nuxt />
     </div>
+    <Footer/>
   </div>
 </template>
 
@@ -16,5 +18,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@/assets/scss/_app.scss";
+@import '~@/assets/scss/_app.scss';
+
 </style>
