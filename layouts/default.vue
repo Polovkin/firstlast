@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <Header/>
+  <div @click="closeDropdowns">
+    <Header />
     <div class="container">
       <nuxt />
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +14,13 @@ export default {
 
   data () {
     return {}
+  },
+  methods: {
+    closeDropdowns (e) {
+      if (!e.target.classList.contains('dropdown__title') && !e.target.classList.contains('dropdown__item')) {
+        this.$store.commit('filters/SET_DROPDOWN_CURRENT', null)
+      }
+    }
   }
 }
 </script>

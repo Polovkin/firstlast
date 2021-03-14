@@ -21,7 +21,7 @@ export default {
   components: true,
 
   buildModules: [
-    '@aceforth/nuxt-optimized-images',
+    '@aceforth/nuxt-optimized-images'
   ],
   optimizedImages: {
     optimizeImages: true
@@ -29,7 +29,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
+    '@nuxtjs/style-resources'
   ],
 
   axios: {},
@@ -37,7 +37,9 @@ export default {
   build: {
     // transpile: ['vuetify'] //IE11
     postcss: [
-      require('autoprefixer')({}),
+      require('autoprefixer')({
+        grid: 'autoplace'
+      }),
       require('cssnano')({
         preset: [
           'default', {

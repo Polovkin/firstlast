@@ -1,0 +1,62 @@
+.search-item {
+  $item_height: 100vw * (400/1440);
+  position: relative;
+
+  min-height: $item_height;
+  overflow: hidden;
+
+  padding: 25px;
+
+  border-radius: 6px;
+  background: {
+
+    position: center;
+    size: cover;
+  };
+
+  &__bg {
+    @include size(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: z(bg-content);
+
+    background: linear-gradient(180deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .1) 100%);
+
+  }
+
+  &__info {
+    flex-direction: column;
+
+    position: relative;
+    z-index: z(content);
+
+    display: flex;
+
+    color: $color__font--secondary;
+  }
+
+  &__year {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  &__name {
+    margin: 15px 0;
+
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  &__stats {
+    display: flex;
+
+  }
+
+  &__stat {
+    margin-right: 1rem;
+    font-weight: 300;
+  }
+}
