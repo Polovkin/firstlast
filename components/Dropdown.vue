@@ -19,7 +19,7 @@
         v-for="(eye,index) of eyesColors"
         :key="index"
         class="dropdown__item"
-        @click="closeDropdown"
+        @click="searchSelect(eye)"
       >
         {{ eye }}
       </li>
@@ -85,7 +85,8 @@ export default {
     openDropdown () {
       this.$store.commit('filters/SET_DROPDOWN_CURRENT', this.type)
     },
-    closeDropdown () {
+    searchSelect (e) {
+      this.$store.commit('filters/SET_EYE_FILTER', e)
       this.$store.commit('filters/SET_DROPDOWN_CURRENT', null)
     }
   }

@@ -2,11 +2,20 @@
 export const state = () => ({
   dropdownCurrentActive: null,
   dropdownState: false,
+  eyeFilter: null,
+  heightFilter: null,
+  ageFilter: null
 })
 
 export const mutations = {
-  SET_DROPDOWN_STATE (s, payload) {
-    s.dropdownState = payload
+  SET_EYE_FILTER (s, payload) {
+    s.eyeFilter = payload
+  },
+  SET_HEIGHT_FILTER (s, payload) {
+    s.heightFilter = payload
+  },
+  SET_AGE_FILTER (s, payload) {
+    s.ageFilter = payload
   },
   SET_DROPDOWN_CURRENT (s, payload) {
     s.dropdownCurrentActive = payload

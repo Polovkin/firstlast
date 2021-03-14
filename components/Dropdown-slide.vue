@@ -3,18 +3,31 @@
     v-if="data"
     class="dropdown__range"
   >
-    <div class="close" @click="closeDropdown" />
+    <div
+      class="close"
+      @click="closeDropdown"
+    />
     <div class="dropdown__range-inputs">
       <label class="dropdown__range-label">
-        <input v-model="slide[0]" class="dropdown__range-input">
+        <input
+          v-model="slide[0]"
+          class="dropdown__range-input"
+        >
       </label>
       <label class="dropdown__range-label">
-        <input v-model="slide[1]" class="dropdown__range-input">
+        <input
+          v-model="slide[1]"
+          class="dropdown__range-input"
+        >
       </label>
     </div>
     <div class="dropdown__range-slider">
-      <div class="dropdown__range-from">{{slide[0]}} BBY</div>
-      <div class="dropdown__range-to">{{slide[1]}} BBY</div>
+      <div class="dropdown__range-from">
+        {{ slide[0] }} BBY
+      </div>
+      <div class="dropdown__range-to">
+        {{ slide[1] }} BBY
+      </div>
       <vue-slider
         ref="slider"
         v-model="slide"
@@ -23,16 +36,19 @@
       />
     </div>
 
-    <button class="dropdown__range-search button">search</button>
+    <button class="dropdown__range-search button" @click="search">
+      search
+    </button>
   </div>
 </template>
 
 <script>
 import 'vue-slider-component/theme/default.css'
+import { TYPES } from '@/types'
 
 export default {
   name: 'DropdownSlide',
-  props: ['data'],
+  props: ['data', 'type'],
   data () {
     return {
       slide: []
@@ -47,7 +63,15 @@ export default {
     this.slide = this.values
   },
   methods: {
-
+    search () {
+      if (this.type === TYPES.HEIGHT) {
+        this.$store.commit('filters/SET_HEIGHT_FILTER', this.slide)
+      }
+      if (this.type === TYPES.AGE) {
+        this.$store.commit('filters/SET_AGE_FILTER', this.slide)
+      }
+      this.$store.commit('filters/SET_DROPDOWN_CURRENT', null)
+    },
     getMinValue (arr) {
       return Math.min(...arr)
     },

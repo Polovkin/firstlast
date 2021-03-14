@@ -9,7 +9,10 @@
 
   &__filters {
     display: flex;
+    align-items: center;
   }
-
+&__reset {
+  margin: 0 !important;
+}
 
 }
