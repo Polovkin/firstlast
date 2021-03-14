@@ -35,9 +35,14 @@ export default {
     }
   },
   watch: {
-    eyeFilter (newValue, oldValue) {
-      console.log(this.people.results);
-      //this.arr = this.filterEye(this.people.result)
+    eyeFilter () {
+      this.FilterAll()
+    },
+    heightFilter () {
+      this.FilterAll()
+    },
+    ageFilter () {
+      this.FilterAll()
     }
   },
   async mounted () {
@@ -45,6 +50,18 @@ export default {
     this.arr = await this.people.results
   },
   methods: {
+    FilterAll () {
+      this.arr = this.people.results
+      if (this.eyeFilter) {
+        this.arr = this.filterEye(this.arr)
+      }
+      if (this.heightFilter) {
+        this.arr = this.filterHeight(this.arr)
+      }
+      if (this.ageFilter) {
+        this.arr = this.filterAge(this.arr)
+      }
+    },
     filterEye (arr) {
       return arr.filter(e => e.eye_color === this.eyeFilter)
     },
