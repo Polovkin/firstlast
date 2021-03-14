@@ -9,4 +9,9 @@
     template-columns: repeat(2,1fr);
     template-rows: repeat(10,auto);
   };
+  @include breakpoint ($phone__all) {
+    flex-direction: column;
+    padding-top: 20px;
+    display: flex;
+  }
 }

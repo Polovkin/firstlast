@@ -1,4 +1,5 @@
 .search {
+
   align-items: center;
   justify-content: space-between;
 
@@ -8,11 +9,23 @@
   margin: 25px 0;
 
   &__filters {
-    display: flex;
     align-items: center;
+
+    display: flex;
   }
-&__reset {
-  margin: 0 !important;
-}
+
+  &__reset {
+    margin: 0 !important;
+    @include breakpoint ($phone__all) {
+      display: none;
+    }
+  }
+
 
 }
+
+.main {
+  padding-top: 60px;
+  min-height: 100vh;
+}
+

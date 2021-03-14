@@ -1,0 +1,106 @@
+.footer {
+
+
+  padding-top: 40px;
+  padding-bottom: 20px;
+
+  background-color: $color__secondary;
+
+  .container {
+    height: 100%;
+  }
+
+  &__wrap {
+    display: grid;
+    height: 100%;
+    grid: {
+      template: {
+        columns: repeat(2, 1fr);
+        rows: auto 25px;
+        areas: 'logo soc' 'link1 link2';
+      };
+    }
+    @include breakpoint ($phone__all) {
+      grid: {
+        row-gap: 35px;
+        template: {
+          rows:25px auto 25px;
+          areas: 'logo logo' 'soc soc''link1 link2';
+        };
+      }
+    }
+  }
+
+  .logotype {
+    display: block;
+    width: 135px;
+    height: 40px;
+    grid-area: logo;
+  }
+
+  &__soc {
+    display: flex;
+    grid-area: soc;
+    justify-self: end;
+
+    a {
+      @include size(40px);
+      display: flex;
+
+      margin-left: 1rem;
+    }
+
+    .fb {
+      position: relative;
+
+      &:after {
+        @include pseudoElement(16px, 'fb.svg');
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%,-50%);
+      }
+
+
+    }
+
+    .inst {
+      position: relative;
+
+      &:after {
+        @include pseudoElement(16px, 'inst.svg');
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%,-50%);
+      }
+    }
+    @include breakpoint ($phone__all) {
+      justify-self: start;
+
+      a {
+        margin-right: 1rem;
+        margin-left: 0;
+      }
+    }
+  }
+%link {
+  font-weight: 300;
+  color: #100F0F;
+  font-size: 14px;
+}
+  .rights {
+    grid-area: link1;
+   @extend %link;
+  }
+
+  .privacy {
+    font-size: 14px;
+    grid-area: link2;
+    @extend %link;
+  }
+
+  @include breakpoint($desktop__all) {
+    height: 200px;
+  }
+}

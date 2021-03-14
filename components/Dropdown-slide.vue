@@ -23,10 +23,10 @@
     </div>
     <div class="dropdown__range-slider">
       <div class="dropdown__range-from">
-        {{ slide[0] }} BBY
+        {{ slide[0] }} {{ type===types.AGE ? 'BBY': "cm" }}
       </div>
       <div class="dropdown__range-to">
-        {{ slide[1] }} BBY
+        {{ slide[1] }} {{ type===types.AGE ? 'BBY': "cm" }}
       </div>
       <vue-slider
         ref="slider"
@@ -51,7 +51,8 @@ export default {
   props: ['data', 'type'],
   data () {
     return {
-      slide: []
+      slide: [],
+      types: TYPES
     }
   },
   computed: {

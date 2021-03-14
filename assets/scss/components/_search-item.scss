@@ -1,3 +1,14 @@
+@keyframes show {
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .search-item {
   $item_height: 100vw * (400/1440);
   position: relative;
@@ -8,6 +19,17 @@
   padding: 25px;
 
   border-radius: 6px;
+
+  opacity: 0;
+
+  transition: all ease .5s;
+  animation: {
+    name: show;
+    duration: .5s;
+    timing-function: ease;
+    fill-mode: forwards;
+  };
+
   background: {
 
     position: center;
@@ -23,7 +45,9 @@
     z-index: z(bg-content);
 
     background: linear-gradient(180deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .1) 100%);
-
+ @include breakpoint ($phone__all) {
+   background: linear-gradient(180.06deg, rgba(0, 0, 0, 0.1) 0.05%, rgba(0, 0, 0, 0.7) 99.95%);
+  }
   }
 
   &__info {
@@ -35,6 +59,9 @@
     display: flex;
 
     color: $color__font--secondary;
+     @include breakpoint ($phone__all) {
+       margin-top: auto;
+      }
   }
 
   &__year {
@@ -57,6 +84,11 @@
 
   &__stat {
     margin-right: 1rem;
+
     font-weight: 300;
+  }
+  @include breakpoint ($phone__all) {
+    height: 300px;
+    display: flex;
   }
 }

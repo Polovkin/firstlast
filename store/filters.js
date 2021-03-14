@@ -4,7 +4,8 @@ export const state = () => ({
   dropdownState: false,
   eyeFilter: null,
   heightFilter: null,
-  ageFilter: null
+  ageFilter: null,
+  sortMethod: null
 })
 
 export const mutations = {
@@ -19,7 +20,10 @@ export const mutations = {
   },
   SET_DROPDOWN_CURRENT (s, payload) {
     s.dropdownCurrentActive = payload
-  }
+  },
+  SET_SORT_METHOD (s, payload) {
+    s.sortMethod = payload
+  },
 }
 
 export const actions = {

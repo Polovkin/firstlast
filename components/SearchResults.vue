@@ -15,6 +15,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { SORTS } from '../types/index'
 
 export default {
   name: 'SearchResults',
@@ -28,13 +29,17 @@ export default {
       people: s => s.people.data,
       eyeFilter: s => s.filters.eyeFilter,
       heightFilter: s => s.filters.heightFilter,
-      ageFilter: s => s.filters.ageFilter
+      ageFilter: s => s.filters.ageFilter,
+      sortMethod: s => s.filters.sortMethod
     }),
     filteredData () {
       return this.arr
     }
   },
   watch: {
+    sortMethod (newV) {
+      this.sortBy(newV)
+    },
     eyeFilter () {
       this.FilterAll()
     },
@@ -78,6 +83,25 @@ export default {
         const num = Number(e.birth_year.split('BBY')[0])
         return (num >= a[0] && num <= a[1])
       })
+    },
+    sortBy (method) {
+      const arr = this.arr.slice()
+      this.$store.commit('filters/SET_SORT_METHOD', null)
+      switch (method) {
+        case (SORTS.MASS):
+          this.arr = arr.sort((a, b) => { return b.mass - a.mass })
+          break
+        case (SORTS.HEIGHT):
+          this.arr = arr.sort((a, b) => { return b.height - a.height })
+          break
+        case (SORTS.AGE):
+          this.arr = arr.sort((a, b) => {
+            return Number(b.birth_year.split('BBY')[0]) - Number(a.birth_year.split('BBY')[0])
+          })
+          break
+        default:
+          break
+      }
     }
   }
 }

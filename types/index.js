@@ -3,3 +3,9 @@ export const TYPES = {
   HEIGHT: 'height',
   AGE: 'age'
 }
+
+export const SORTS = {
+  MASS: 'mass',
+  HEIGHT: 'height',
+  AGE: 'age'
+}

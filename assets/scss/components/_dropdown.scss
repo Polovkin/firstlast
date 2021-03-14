@@ -139,6 +139,27 @@
     }
   }
 
+  &.sort {
+
+    @include burgerLines(2, 2px, $color__dark);
+    display: none;
+    width: 24px;
+    height: 10px;
+    @include breakpoint($phone__all) {
+      display: block;
+
+      margin-left: 40px;
+      .dropdown__list.active {
+        left: unset;
+        right: 0;
+      }
+      .dropdown__title {
+        display: none;
+      }
+    }
+
+
+  }
 }
 
 .vue-slider {
@@ -159,3 +180,4 @@
     display: none !important;
   }
 }
+

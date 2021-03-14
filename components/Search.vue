@@ -8,7 +8,9 @@
         Reset
       </button>
     </div>
-    <div class="search__sort" />
+    <div class="search__sort" >
+      <Dropdown class="sort" :type="'sort'" />
+    </div>
   </div>
 </template>
 
