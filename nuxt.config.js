@@ -16,7 +16,13 @@ export default {
   styleResources: {
     scss: '@/assets/scss/core/_global.scss'
   },
-  plugins: [],
+  plugins: [
+
+    {
+      src: '~plugins/vue-slider-component.js',
+      ssr: false
+    }
+  ],
 
   components: true,
 

@@ -24,14 +24,19 @@
         {{ eye }}
       </li>
     </ul>
-    <div
-      v-else-if="type===types.HEIGHT"
-      class="dropdown__range"
-      :class="{'active':current===type}"
-    >
-      <p>{{ sliderValue }}</p>
 
-    </div>
+    <DropdownSlide
+      v-else-if="type === types.HEIGHT"
+      :class="{'active':current===type}"
+      :type="type"
+      :data="height"
+    />
+    <DropdownSlide
+      v-else-if="type === types.AGE"
+      :class="{'active':current===type}"
+      :type="type"
+      :data="age"
+    />
   </div>
 </template>
 
@@ -41,13 +46,12 @@ import { TYPES } from '../types/index'
 
 export default {
   name: 'Dropdown',
-  components: {  },
+
   props: ['type'],
   data () {
     return {
       types: TYPES,
-      isActive: false,
-      sliderValue: ''
+      isActive: false
     }
   },
   computed: {
@@ -60,24 +64,24 @@ export default {
     },
     height () {
       return this.getFilteredValues(this.people.results, TYPES.HEIGHT)
+    },
+    age () {
+      const arr = this.people.results.map((e) => {
+        return Number(e.birth_year.split('BBY')[0])
+      })
+      return arr.filter(e => !!e)
     }
   },
-  mounted () {
 
-  },
   methods: {
+
     getFilteredValues (arr, type) {
       const array = arr.map((e) => {
         return e[type]
       })
       return [...new Set(array)]
     },
-    getMinValue (arr) {
-      return Math.min(...arr)
-    },
-    getMaxValue (arr) {
-      return Math.max(...arr)
-    },
+
     openDropdown () {
       this.$store.commit('filters/SET_DROPDOWN_CURRENT', this.type)
     },

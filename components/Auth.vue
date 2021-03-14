@@ -3,7 +3,7 @@
     <button class="auth__login">
       Log in
     </button>
-    <button class="auth__signup">
+    <button class="auth__signup button">
       Sign in
     </button>
   </div>
@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style scoped
+<style
        lang="scss">
 .auth {
   display: flex;
@@ -26,11 +26,12 @@ export default {
     margin-right: 2rem;
 
     transition: all .2s;
- @include breakpoint ($phone__all) {
-     display: none;
-  }
+
     &:hover {
       color: $color__primary;
+    }
+    @include breakpoint ($phone__all) {
+      display: none;
     }
   }
 
@@ -42,26 +43,14 @@ export default {
 
     padding: 0 56px;
 
-    border-radius: 6px;
-
-    background-color: $color__primary;
-
-    color: $color__font--secondary;
-
-    transition: all .2s;
     @include breakpoint($phone__all) {
-      padding: unset;
       height: auto;
+
+      padding: unset;
+
       background-color: transparent;
+
       color: $color__font--primary;
-    }
-
-    &:hover {
-      background-color: darken($color__primary, 5%);
-    }
-
-    &:active, {
-      transform: scale(.98);
     }
   }
 }

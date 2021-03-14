@@ -1,6 +1,8 @@
 .dropdown {
   position: relative;
-  width: 100px;
+
+  margin-right: 3rem;
+
   cursor: pointer;
 
   &__title {
@@ -10,10 +12,14 @@
 
     display: flex;
 
+    font-weight: 400;
+
+    text-transform: capitalize;
+
     span {
       @include semi-cross(8px, 6px, 1px, $color__dark, 225deg);
       position: relative;
-      top: -2px;
+      top: -3px;
       left: 8px;
     }
   }
@@ -54,5 +60,102 @@
 
   &__range {
     @extend .dropdown__list;
+    flex-direction: column;
+
+    z-index: z(bg-content);
+
+    display: flex;
+
+    width: 250px;
+
+
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, .04);
+
+    transition: all 0s;
+
+    &.active {
+      z-index: z(top-content);
+
+      padding: 30px 20px 10px;
+    }
+
+    &-inputs {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 40px;
+    }
+
+    &-label {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-input {
+      width: inherit;
+      height: inherit;
+      box-sizing: border-box;
+
+      padding: 12px 8px;
+
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 6px;
+
+      font-size: 14px;
+      font-weight: 100;
+    }
+
+    &-slider {
+      position: relative;
+
+      width: calc(100% - 20px);
+
+      margin: 50px auto 0;
+
+    }
+
+    &-search {
+      margin-top: 1rem;
+      margin-left: auto;
+      padding: 6px 12px;
+    }
+
+    &-from, &-to {
+      position: absolute;
+      top: -30px;
+
+      color: rgba($color__font--primary, .8);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    &-from {
+      left: 0;
+    }
+
+    &-to {
+      right: 0;
+    }
+  }
+
+}
+
+.vue-slider {
+
+  &-rail {
+    height: 2px !important;
+  }
+
+  &-process {
+    background-color: $color__primary !important;
+  }
+
+  &-dot-handle {
+    background-color: $color__primary !important;
+  }
+
+  &-dot-tooltip {
+    display: none !important;
   }
 }
